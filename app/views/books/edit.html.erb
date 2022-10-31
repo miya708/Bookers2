@@ -1,0 +1,37 @@
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 col-lg-5 px-sm-0 mx-auto">
+        <h1>Editing Book</h1>
+
+       <%= form_with model: @book do |f| %>
+
+       <div class="form-group">
+       <label>Title</label>
+       <div><%= f.text_field :title, :size=>"60" %></div>
+
+       </div>
+
+
+
+	     <div class="form-group">
+       <label for="book_opinion">Opinion</label>
+       <div><%= f.text_area :body, :size=>"60" %></div>
+       </div>
+
+        <div class="form-group">
+              <%= f.submit "Update Book", class: "btn btn-success" %>
+
+        </div>
+        <% end %>
+
+      <div class="menu">
+      <%= link_to "Show", book_path(@book) %>
+      |
+      <%= link_to "Back", books_path %>
+      </div>
+
+      </div>
+    </div>
+  </div>
+</main>

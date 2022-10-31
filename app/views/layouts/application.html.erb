@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookers2</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+ <body>
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+     <div class="container">
+       <a class="navbar-brand" href="https://cdb4986cfe3d4c4f8c953fab0c5545d6.vfs.cloud9.ap-northeast-1.amazonaws.com/">
+         <span>Bookers</span>
+       </a>
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggler=navigation">
+         <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarNavDropdown">
+         <ul class="navbar-nav ml-auto">
+           <!--<ul class="nav navbar-nav navbar-right">-->
+            <% if user_signed_in? %>
+
+            <li class="">
+              <%= link_to user_path(current_user), class: "nav-link text-light" do %>
+                <i class="fas fa-home"></i>Home
+              <% end %>
+            </li>
+
+            <li class="">
+              <%= link_to users_path, class: "nav-link text-light" do %>
+                <i class="fas fa-users"></i> Users
+              <% end %>
+            </li>
+
+            <li class="">
+              <%= link_to books_path, class: "nav-link text-light" do %>
+                <i class="fas fa-book-open"></i> Books
+              <% end %>
+            </li>
+
+            <li class="">
+              <%= link_to destroy_user_session_path,method: :delete, class: "nav-link text-light" do %>
+                <i class="fas fa-sign-out-alt"></i> Log out
+              <% end %>
+            </li>
+
+
+            <% else %>
+            <li class="">
+              <%= link_to root_path, class: "nav-link text-light" do %> <!--ヘッダーHome-->
+                <i class="fas fa-home"></i>Home
+              <% end %>
+            </li>
+
+            <li class="">
+            <%= link_to about_path, class: "nav-link text-light" do %> <!--ヘッダーAbout-->
+                <i class="fas fa-link"></i>About
+              <% end %>
+            </li>
+
+            <li class="">
+            <%= link_to new_user_registration_path, class: "nav-link text-light" do %> <!--ヘッダーSign up-->
+                <i class="fas fa-user-plus"></i> Sign up
+              <% end %>
+            </li>
+
+            <li class="">
+            <%= link_to user_session_path, class: "nav-link text-light" do %> <!--ヘッダーLog in-->
+                <i class="fas fa-sign-in-alt"></i> Log in
+              <% end %>
+            </li>
+
+             <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+
+
+
+
+
+
+    </header>
+    <main class="mb-auto">
+    <%= yield %>
+    </main>
+    <footer class="container mt-5">
+      <div class="row">
+        <div class="mx-auto">
+
+          <p class="text-right"> CopyRight Infratop.inc</p>
+        </div>
+    </footer>
+  </body>
+</html>
