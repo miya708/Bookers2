@@ -1,4 +1,10 @@
 <div class="box">
+	
+	<div class="flash-notifications">
+  <% flash.each do |key, value| %>
+   <%= content_tag(:div, value, class: key) %>
+  <% end %>
+</div>
 
 
 
@@ -23,7 +29,7 @@
 	  </div>
 
 
-               <%=link_to "log in","/users/sign_in",class:"btn btn-info btn-sm btn-block mb-3 sign_in"%>
+               <%=link_to "Log in","/users/sign_in",class:"btn btn-primary btn-sm btn-block mb-3 sign_in"%>
 
                <%=link_to "Sign up","/users/sign_up",class:"btn btn-success btn-sm btn-block mb-3 sign_up"%>
            </div>
